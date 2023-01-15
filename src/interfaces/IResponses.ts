@@ -1,4 +1,3 @@
-import { IProviders, IAmounts, ISectors, IPayment, IDetPayments } from './Itables';
 export interface INewPermissions {
     permissions: Array<INewPermission>,
     idUser: number
@@ -17,8 +16,4 @@ export interface INewInsert {
     message: string,
     protocol41: boolean,
     changedRows: number
-}
-
-export interface IProviderData extends IProviders, IAmounts, ISectors {
-
 }

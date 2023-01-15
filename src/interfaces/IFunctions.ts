@@ -1,5 +1,4 @@
-import { IProviders } from './Itables';
-import { EConcatWhere, EModeWhere, ETypesJoin } from "enums/EfunctMysql";
+import { EConcatWhere, EModeWhere, ETypesJoin } from "enums/EFunctionsMysql";
 
 export interface IWhere {
     column: string,
@@ -10,13 +9,13 @@ export interface IWhereParams {
     concat: EConcatWhere,
     items: Array<IWhere>
 }
-export interface Ipages {
+export interface IPages {
     currentPage: number,
     order: string,
     cantPerPage: number,
     asc: boolean
 }
-export interface Iorder {
+export interface IOrder {
     columns: string[],
     asc: boolean
 }
@@ -45,9 +44,4 @@ export interface IJoinMysql {
     tableJoin: string,
     columnOrigin: string,
     columnJoin: string
-}
-export interface newDataProv extends IProviders {
-    totalWork: number,
-    totalPayment: number | string,
-    difference: number
 }

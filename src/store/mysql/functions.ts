@@ -1,5 +1,5 @@
-import { IJoin, Iorder, Ipages, IWhere, IWhereParams } from "interfaces/Ifunctions";
-import { EConcatWhere, EModeWhere } from "../../enums/EfunctMysql";
+import { IJoin, IOrder, IPages, IWhere, IWhereParams } from "interfaces/IFunctions";
+import { EConcatWhere, EModeWhere } from "../../enums/EFunctionsMysql";
 import { Tables } from "../../enums/ETablesDB";
 
 export const multipleInsert = async (headers: Array<string>, rows: Array<any>): Promise<string> => {
@@ -58,14 +58,14 @@ export const multipleInsert = async (headers: Array<string>, rows: Array<any>): 
     return ` ${await headersQuery} VALUES ${await rowsQuery} `
 }
 
-export const selectContructor = (
+export const selectConstructor = (
     table: Tables,
     colSelect: Array<string>,
     whereParamsArray?: Array<IWhereParams>,
     groupBy?: Array<string>,
-    pages?: Ipages,
+    pages?: IPages,
     join?: Array<IJoin>,
-    order?: Iorder
+    order?: IOrder
 ) => {
     let query = ` SELECT `;
     colSelect.map((item, key) => {

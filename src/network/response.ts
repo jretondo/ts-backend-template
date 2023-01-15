@@ -1,6 +1,5 @@
 import fs from 'fs';
-import { json, Request, Response } from 'express';
-import { stringify } from 'querystring';
+import { Request, Response } from 'express';
 
 interface propRes {
     req: Request,

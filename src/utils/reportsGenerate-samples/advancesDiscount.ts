@@ -1,4 +1,3 @@
-import { newDataProv } from './../../interfaces/Ifunctions';
 import fs from 'fs';
 import path from 'path';
 import { Error } from 'tinify/lib/tinify/Error';
@@ -7,7 +6,7 @@ import JsReport from 'jsreport-core';
 import { promisify } from 'util';
 
 export const createAdvanceDiscountPDF = async (
-    providerList: Array<newDataProv>,
+    providerList: Array<any>,
     month: string,
     year: string,
     total: string

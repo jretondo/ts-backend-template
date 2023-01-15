@@ -1,9 +1,9 @@
-import { ETypesJoin } from '../../../enums/EfunctMysql';
-import { INewInsert } from './../../../interfaces/Iresponses';
-import { IActivity } from './../../../interfaces/Itables';
-import { IUser } from 'interfaces/Itables';
-import { IWhereParams, Ipages, IJoin } from 'interfaces/Ifunctions';
-import { EModeWhere, EConcatWhere, ESelectFunctions } from '../../../enums/EfunctMysql';
+import { ETypesJoin } from '../../../enums/EFunctionsMysql';
+import { INewInsert } from '../../../interfaces/IResponses';
+import { IActivity } from '../../../interfaces/ITables';
+import { IUser } from 'interfaces/ITables';
+import { IWhereParams, IPages, IJoin } from 'interfaces/IFunctions';
+import { EModeWhere, EConcatWhere, ESelectFunctions } from '../../../enums/EFunctionsMysql';
 import { Tables, Columns } from '../../../enums/ETablesDB';
 import StoreType from '../../../store/mysql';
 import getPages from '../../../utils/functions/getPages';
@@ -12,10 +12,10 @@ import moment from 'moment';
 export = (injectedStore: typeof StoreType) => {
     let store = injectedStore;
 
-    const upsert = async (user: IUser, activityDescr: string) => {
+    const upsert = async (user: IUser, activity_description: string) => {
         const newActivity: IActivity = {
             user_id: user.id || 0,
-            activity_descr: activityDescr
+            activity_description: activity_description
         }
         const resp: INewInsert = await store.insert(Tables.ACTIVITY, newActivity)
         if (resp.affectedRows > 0) {
@@ -67,7 +67,7 @@ export = (injectedStore: typeof StoreType) => {
             tableOrigin: Tables.ACTIVITY
         }
 
-        let pages: Ipages;
+        let pages: IPages;
         if (page) {
             pages = {
                 currentPage: page,

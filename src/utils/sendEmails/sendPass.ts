@@ -4,7 +4,7 @@ import sendEmail from './sendmail';
 import Colors from '../../data/Colors.json';
 import Links from '../../data/Links.json';
 import Names from '../../data/Names.json';
-import { IEmailSendPass } from '../../interfaces/Iemails';
+import { IEmailSendPass } from '../../interfaces/IEmails';
 
 export const sendPass = async (
     user: string,

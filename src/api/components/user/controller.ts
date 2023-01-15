@@ -1,11 +1,11 @@
-import { INewUser } from './../../../interfaces/Irequests';
-import { Ipages, IWhereParams } from 'interfaces/Ifunctions';
-import { Iauth, IUser } from 'interfaces/Itables';
-import { EConcatWhere, EModeWhere, ESelectFunctions } from '../../../enums/EfunctMysql';
+import { INewUser } from '../../../interfaces/IRequests';
+import { IPages, IWhereParams } from 'interfaces/IFunctions';
+import { IAuth, IUser } from 'interfaces/ITables';
+import { EConcatWhere, EModeWhere, ESelectFunctions } from '../../../enums/EFunctionsMysql';
 import { Tables, Columns } from '../../../enums/ETablesDB';
 import StoreType from '../../../store/mysql';
 import getPages from '../../../utils/functions/getPages';
-import Authcontroller from '../auth/index';
+import AuthController from '../auth/index';
 
 export = (injectedStore: typeof StoreType) => {
     let store = injectedStore;
@@ -39,7 +39,7 @@ export = (injectedStore: typeof StoreType) => {
             filters.push(filter);
         }
 
-        let pages: Ipages;
+        let pages: IPages;
         if (page) {
             pages = {
                 currentPage: page,
@@ -76,12 +76,12 @@ export = (injectedStore: typeof StoreType) => {
             return await store.update(Tables.ADMIN, user, body.id);
         } else {
             const result = await store.insert(Tables.ADMIN, user);
-            const newAuth: Iauth = {
+            const newAuth: IAuth = {
                 id: result.insertId,
                 user: user.user,
                 prov: 1
             }
-            return await Authcontroller.upsert(newAuth, body.email);
+            return await AuthController.upsert(newAuth, body.email);
         }
     }
 

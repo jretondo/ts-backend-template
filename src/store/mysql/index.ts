@@ -1,8 +1,8 @@
 import mysql from 'mysql';
 import { Tables } from '../../enums/ETablesDB';
 import { config } from '../../config';
-import { multipleInsert, selectContructor, updateConstructor } from './functions';
-import { IJoin, IJoinMysql, IMultipleInsert, Iorder, Ipages, IWhere, IWhereParams } from 'interfaces/Ifunctions';
+import { multipleInsert, selectConstructor, updateConstructor } from './functions';
+import { IJoin, IJoinMysql, IMultipleInsert, IOrder, IPages, IWhere, IWhereParams } from 'interfaces/IFunctions';
 
 const dbConf = {
     host: config.mysql.host,
@@ -19,6 +19,7 @@ const handleCon = () => {
     connection.connect((err: any) => {
         if (err) {
             console.error("[db] ", err)
+            console.log('object :>> ', err.code);
             setTimeout(() => {
                 handleCon()
             }, 2000);
@@ -170,11 +171,11 @@ const list = (
     colSelect: Array<string>,
     whereParams?: Array<IWhereParams>,
     groupBy?: Array<string>,
-    pages?: Ipages,
+    pages?: IPages,
     join?: Array<IJoin>,
-    order?: Iorder
+    order?: IOrder
 ): Promise<any> => {
-    const query = selectContructor(table, colSelect, whereParams, groupBy, pages, join, order);
+    const query = selectConstructor(table, colSelect, whereParams, groupBy, pages, join, order);
 
     return new Promise((resolve, reject) => {
         connection.query(query, (err: Error, data: any) => {

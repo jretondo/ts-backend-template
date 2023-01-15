@@ -1,18 +1,16 @@
-import { IProviderData } from './../../interfaces/Iresponses';
 import fs from 'fs';
 import path from 'path';
 import { Error } from 'tinify/lib/tinify/Error';
 import ejs from 'ejs';
 import moment from 'moment';
-import { zfill } from '../../utils/fillZeros';
-import { formatMoney } from '../../utils/functions/formatMoney';
+import { zfill } from '../fillZeros';
+import { formatMoney } from '../functions/formatMoney';
 import pdf from 'html-pdf';
-import { IDetPayments, IPayment } from 'interfaces/Itables';
 
 export const createPDFPayment = async (
-    paymentData: IPayment,
-    detailsData: Array<IDetPayments>,
-    providerData: IProviderData
+    paymentData: any,
+    detailsData: Array<any>,
+    providerData: any
 ) => {
     let dataPDF: {
         fileName: string,

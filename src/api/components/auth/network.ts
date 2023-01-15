@@ -53,8 +53,9 @@ const reqPass = (
 }
 
 
-router.post("/", login);
-router.put("/", secure(), changePass);
-router.patch("/", reqPass);
+router
+    .post("/", login)
+    .put("/", secure(), changePass)
+    .patch("/", reqPass);
 
 export = router

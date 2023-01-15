@@ -1,7 +1,9 @@
 import { config } from '../../config'
 import path from 'path'
 import tinify from 'tinify'
+
 tinify.key = config.tinify.key
+
 const OptimizeImg = async (file: string) => {
     const directory = path.join(__dirname, '..', '..', 'public', 'images', 'products', file)
 

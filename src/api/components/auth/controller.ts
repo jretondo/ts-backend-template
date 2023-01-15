@@ -4,13 +4,13 @@ import bcrypt from 'bcrypt';
 import { passCreator } from '../../../utils/functions/passCreator';
 import { sendPass } from '../../../utils/sendEmails/sendPass';
 import auth from '../../../auth';
-import { Iauth } from 'interfaces/Itables';
+import { IAuth } from 'interfaces/ITables';
 
 export = (injectedStore: typeof StoreType) => {
     let store = injectedStore;
 
-    const upsert = async (body: Iauth, email: string) => {
-        let newAuth: Iauth;
+    const upsert = async (body: IAuth, email: string) => {
+        let newAuth: IAuth;
         if (body.pass) {
             newAuth = {
                 user: body.user,
@@ -49,7 +49,7 @@ export = (injectedStore: typeof StoreType) => {
         const userData = await store.query(Tables.ADMIN, { email: email });
         const idUsu = userData[0].id;
         const user = userData[0].user;
-        const data: Iauth = {
+        const data: IAuth = {
             id: idUsu,
             user: user,
             prov: 1,

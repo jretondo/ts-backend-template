@@ -29,7 +29,7 @@ enum Activity {
     id = "id",
     date = "date",
     user_id = "user_id",
-    activity_descr = "activity_descr"
+    activity_description = "activity_description"
 }
 
 export enum EPermissions {

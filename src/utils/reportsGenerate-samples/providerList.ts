@@ -4,10 +4,9 @@ import { Error } from 'tinify/lib/tinify/Error';
 import ejs from 'ejs';
 import JsReport from 'jsreport-core';
 import { promisify } from 'util';
-import { IProviders } from 'interfaces/Itables';
 
 export const createProviderListPDF = async (
-    providerList: Array<IProviders>
+    providerList: Array<any>
 ) => {
     return new Promise(async (resolve, reject) => {
         function base64_encode(file: any) {

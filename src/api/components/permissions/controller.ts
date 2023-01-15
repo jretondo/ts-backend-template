@@ -1,6 +1,6 @@
-import { INewPermissions } from './../../../interfaces/Irequests';
-import { IJoinMysql, IWhereParams } from 'interfaces/Ifunctions';
-import { EModeWhere, EConcatWhere, ESelectFunctions } from '../../../enums/EfunctMysql';
+import { INewPermissions } from '../../../interfaces/IRequests';
+import { IJoinMysql, IWhereParams } from 'interfaces/IFunctions';
+import { EModeWhere, EConcatWhere, ESelectFunctions } from '../../../enums/EFunctionsMysql';
 import { Tables, Columns } from '../../../enums/ETablesDB';
 import StoreType from '../../../store/mysql';
 
@@ -74,8 +74,8 @@ export = (injectedStore: typeof StoreType) => {
         const permissions: Array<any> = await new Promise((resolve, reject) => {
             const list: Array<any> = [];
             allPermissions.map((item: any, key: number) => {
-                const idPermiso = item.id
-                const found = userPermissions.find((element: any) => element.id_permission === idPermiso)
+                const PERMISSION_ID = item.id
+                const found = userPermissions.find((element: any) => element.id_permission === PERMISSION_ID)
                 if (!found) {
                     list.push(item);
                 }

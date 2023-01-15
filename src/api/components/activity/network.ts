@@ -32,6 +32,8 @@ const list = (
 }
 
 //Routes
-router.get("/:page", secure(EPermissions.userAdmin), list)
+router
+    .get("/:page", secure(EPermissions.userAdmin), list)
     .post("/", secure(), upsert);
+
 export = router;

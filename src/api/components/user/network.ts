@@ -11,12 +11,12 @@ const list = (
     next: NextFunction
 ) => {
     Controller.list(undefined, req.body.query)
-        .then((lista: any) => {
+        .then((list: any) => {
             success({
                 req,
                 res,
                 status: 200,
-                message: lista
+                message: list
             });
         })
         .catch(next)
@@ -33,12 +33,12 @@ const listPagination = (
         Number(req.query.cantPerPage),
         Number(req.body.user.id)
     )
-        .then((lista: any) => {
+        .then((list: any) => {
             success({
                 req,
                 res,
                 status: 200,
-                message: lista
+                message: list
             });
         })
         .catch(next)
@@ -100,12 +100,13 @@ const myDataUser = (
         .catch(next)
 }
 
-router.get("/details/:id", secure(EPermissions.userAdmin), get);
-router.get("/mydata", secure(), myDataUser)
-router.get("/:page", secure(EPermissions.userAdmin), listPagination);
-router.get("/", secure(EPermissions.userAdmin), list);
-router.post("/", secure(EPermissions.userAdmin), upsert);
-router.put("/", secure(EPermissions.userAdmin), upsert);
-router.delete("/:id", secure(EPermissions.userAdmin), remove);
+router
+    .get("/details/:id", secure(EPermissions.userAdmin), get)
+    .get("/mydata", secure(), myDataUser)
+    .get("/:page", secure(EPermissions.userAdmin), listPagination)
+    .get("/", secure(EPermissions.userAdmin), list)
+    .post("/", secure(EPermissions.userAdmin), upsert)
+    .put("/", secure(EPermissions.userAdmin), upsert)
+    .delete("/:id", secure(EPermissions.userAdmin), remove);
 
 export = router;
