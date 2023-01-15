@@ -1,6 +1,4 @@
-<table
-  class="row"
-  style="
+<table class="row" style="
     border-collapse: collapse;
     border-spacing: 0;
     padding: 0;
@@ -8,13 +6,10 @@
     text-align: left;
     vertical-align: top;
     width: 100%;
-  "
->
+  ">
   <tbody>
     <tr style="padding: 0; text-align: left; vertical-align: top">
-      <th
-        class="small-12 large-12 columns first last"
-        style="
+      <th class="small-12 large-12 columns first last" style="
           color: #0a0a0a;
           font-family: Helvetica, Arial, sans-serif;
           font-size: 16px;
@@ -27,22 +22,18 @@
           padding-right: 16px;
           text-align: left;
           width: 564px;
-        "
-      >
-        <table
-          style="
+        ">
+        <table style="
             border-collapse: collapse;
             border-spacing: 0;
             padding: 0;
             text-align: left;
             vertical-align: top;
             width: 100%;
-          "
-        >
+          ">
           <tbody>
             <tr style="padding: 0; text-align: left; vertical-align: top">
-              <th
-                style="
+              <th style="
                   color: #0a0a0a;
                   font-family: Helvetica, Arial, sans-serif;
                   font-size: 16px;
@@ -51,10 +42,8 @@
                   margin: 0;
                   padding: 0;
                   text-align: left;
-                "
-              >
-                <h1
-                  style="
+                ">
+                <h1 style="
                     color: inherit;
                     font-family: Helvetica, Arial, sans-serif;
                     font-size: 34px;
@@ -65,20 +54,16 @@
                     padding: 0;
                     text-align: left;
                     word-wrap: normal;
-                  "
-                >
+                  ">
                   <%- titleHead %>
                 </h1>
-                <%- include("../Other/SpacerTrasparentShort.ejs") %> <%
-                parrafosHead.forEach(parrafo => { %> <%-
-                include("../Paragraph/Paragraph2.ejs", {colorP:
-                Colors[0].paragraph, parrafo: parrafo}) %> <% }); %> <%-
-                include("../ImagesCards/ImageHero.ejs", {image: imageNews}) %>
-                <%- include("../Paragraph/ParagraphBg.ejs", {text:
-                textSubtitle}) %>
+                <%- include("../Other/SpacerTrasparentShort.ejs") %>
+                  <% paragraphHead.forEach(parrafo=> { %> <%- include("../Paragraph/Paragraph2.ejs", {colorP:
+                      Colors[0].paragraph, parrafo: parrafo}) %>
+                      <% }); %> <%- include("../ImagesCards/ImageHero.ejs", {image: imageNews}) %>
+                          <%- include("../Paragraph/ParagraphBg.ejs", {text: textSubtitle}) %>
 
-                <h2
-                  style="
+                            <h2 style="
                     color: inherit;
                     font-family: Helvetica, Arial, sans-serif;
                     font-size: 30px;
@@ -89,18 +74,14 @@
                     padding: 0;
                     text-align: left;
                     word-wrap: normal;
-                  "
-                >
-                  <%- titleNews %>
-                </h2>
-                <%- include("../Paragraph/Paragraph3.ejs", {text: textNews}) %>
-                <%- include("../Other/SpacerTrasparent.ejs") %> <%-
-                include("../Buttons/ButtonShort.ejs", {redirectButton:
-                redirectCall, textButton: textCall}) %>
+                  ">
+                              <%- titleNews %>
+                            </h2>
+                            <%- include("../Paragraph/Paragraph3.ejs", {text: textNews}) %>
+                              <%- include("../Other/SpacerTrasparent.ejs") %> <%- include("../Buttons/ButtonShort.ejs",
+                                  {redirectButton: redirectCall, textButton: textCall}) %>
               </th>
-              <th
-                class="expander"
-                style="
+              <th class="expander" style="
                   color: #0a0a0a;
                   font-family: Helvetica, Arial, sans-serif;
                   font-size: 16px;
@@ -111,8 +92,7 @@
                   text-align: left;
                   visibility: hidden;
                   width: 0;
-                "
-              ></th>
+                "></th>
             </tr>
           </tbody>
         </table>

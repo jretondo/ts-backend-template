@@ -4,9 +4,9 @@ export interface IEmailSendPass {
     Names: object,
     titlePage: string,
     titleHead: string,
-    parrafosHead: Array<string>,
+    paragraphHead: Array<string>,
     titleButton: string,
     textCall: string,
     textCall2: string,
-    textFoother: string
+    textFooter: string
 }

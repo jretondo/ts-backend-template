@@ -3,8 +3,8 @@ import { INewInsert } from './../../../interfaces/Iresponses';
 import { IActivity } from './../../../interfaces/Itables';
 import { IUser } from 'interfaces/Itables';
 import { IWhereParams, Ipages, IJoin } from 'interfaces/Ifunctions';
-import { EModeWhere, EConcatWhere, ESelectFunct } from '../../../enums/EfunctMysql';
-import { Tables, Columns } from '../../../enums/EtablesDB';
+import { EModeWhere, EConcatWhere, ESelectFunctions } from '../../../enums/EfunctMysql';
+import { Tables, Columns } from '../../../enums/ETablesDB';
 import StoreType from '../../../store/mysql';
 import getPages from '../../../utils/functions/getPages';
 import moment from 'moment';
@@ -75,8 +75,8 @@ export = (injectedStore: typeof StoreType) => {
                 order: Columns.activity.date,
                 asc: false
             };
-            const data = await store.list(Tables.ACTIVITY, [ESelectFunct.all], filters, undefined, pages, [joinUser]);
-            const cant = await store.list(Tables.ACTIVITY, [`COUNT(${ESelectFunct.all}) AS COUNT`], filters, undefined, undefined);
+            const data = await store.list(Tables.ACTIVITY, [ESelectFunctions.all], filters, undefined, pages, [joinUser]);
+            const cant = await store.list(Tables.ACTIVITY, [`COUNT(${ESelectFunctions.all}) AS COUNT`], filters, undefined, undefined);
             const pagesObj = await getPages(cant[0].COUNT, 5, Number(page));
 
             return {
@@ -84,7 +84,7 @@ export = (injectedStore: typeof StoreType) => {
                 pagesObj
             };
         } else {
-            const data = await store.list(Tables.ACTIVITY, [ESelectFunct.all], filters, undefined, undefined, [joinUser]);
+            const data = await store.list(Tables.ACTIVITY, [ESelectFunctions.all], filters, undefined, undefined, [joinUser]);
             return {
                 data
             };

@@ -1,7 +1,7 @@
 import { INewPermissions } from './../../../interfaces/Irequests';
 import { IJoinMysql, IWhereParams } from 'interfaces/Ifunctions';
-import { EModeWhere, EConcatWhere, ESelectFunct } from '../../../enums/EfunctMysql';
-import { Tables, Columns } from '../../../enums/EtablesDB';
+import { EModeWhere, EConcatWhere, ESelectFunctions } from '../../../enums/EfunctMysql';
+import { Tables, Columns } from '../../../enums/ETablesDB';
 import StoreType from '../../../store/mysql';
 
 export = (injectedStore: typeof StoreType) => {
@@ -45,7 +45,7 @@ export = (injectedStore: typeof StoreType) => {
             ]
         }
         filters.push(filter);
-        return await store.list(Tables.USER_PERMISSIONS, [ESelectFunct.all], filters, undefined, undefined);
+        return await store.list(Tables.USER_PERMISSIONS, [ESelectFunctions.all], filters, undefined, undefined);
     }
 
     const get2 = async (idUser: number) => {

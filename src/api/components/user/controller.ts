@@ -1,8 +1,8 @@
 import { INewUser } from './../../../interfaces/Irequests';
 import { Ipages, IWhereParams } from 'interfaces/Ifunctions';
 import { Iauth, IUser } from 'interfaces/Itables';
-import { EConcatWhere, EModeWhere, ESelectFunct } from '../../../enums/EfunctMysql';
-import { Tables, Columns } from '../../../enums/EtablesDB';
+import { EConcatWhere, EModeWhere, ESelectFunctions } from '../../../enums/EfunctMysql';
+import { Tables, Columns } from '../../../enums/ETablesDB';
 import StoreType from '../../../store/mysql';
 import getPages from '../../../utils/functions/getPages';
 import Authcontroller from '../auth/index';
@@ -47,15 +47,15 @@ export = (injectedStore: typeof StoreType) => {
                 order: Columns.admin.id,
                 asc: true
             };
-            const data = await store.list(Tables.ADMIN, [ESelectFunct.all], filters, undefined, pages);
-            const cant = await store.list(Tables.ADMIN, [`COUNT(${ESelectFunct.all}) AS COUNT`], filters, undefined, undefined);
+            const data = await store.list(Tables.ADMIN, [ESelectFunctions.all], filters, undefined, pages);
+            const cant = await store.list(Tables.ADMIN, [`COUNT(${ESelectFunctions.all}) AS COUNT`], filters, undefined, undefined);
             const pagesObj = await getPages(cant[0].COUNT, 10, Number(page));
             return {
                 data,
                 pagesObj
             };
         } else {
-            const data = await store.list(Tables.ADMIN, [ESelectFunct.all], filters, undefined, undefined);
+            const data = await store.list(Tables.ADMIN, [ESelectFunctions.all], filters, undefined, undefined);
             return {
                 data
             };
@@ -71,7 +71,7 @@ export = (injectedStore: typeof StoreType) => {
             user: body.userName,
             tel: body.tel
         }
-        console.log('body :>> ', body);
+
         if (body.id) {
             return await store.update(Tables.ADMIN, user, body.id);
         } else {

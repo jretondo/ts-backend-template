@@ -18,8 +18,7 @@ import user from './components/user/network';
 import routes from './components/routes/network';
 import activity from './components/activity/network';
 import views from './components/views/network';
-import reports from './components/reports/network';
-import { config } from 'config';
+import { config } from '../config';
 export class App {
     app: Application;
     constructor(
@@ -53,7 +52,6 @@ export class App {
         this.app.use("/api/user", user)
         this.app.use("/api/routes", routes)
         this.app.use("/api/activity", activity)
-        this.app.use("/api/reports", reports)
         this.app.use("/api/views", views)
         this.app.use(errorThrow);
     }

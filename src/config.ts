@@ -26,12 +26,17 @@ interface ISsl {
     key: any
 }
 
+interface ITinify {
+    key: any
+}
+
 interface IConF {
     api: IApi,
     jwt: IJwt,
     mysql: IMysql,
     sendmail: ISendmail,
-    ssl: ISsl
+    ssl: ISsl,
+    tinify: ITinify
 }
 
 let config: IConF;
@@ -63,6 +68,9 @@ if (process.env.ENTORNO === "PROD") {
         ssl: {
             crt: process.env.SSL_CERT_NAME,
             key: process.env.SSL_KEY_NAME
+        },
+        tinify: {
+            key: process.env.TINIFY_KEY
         }
     }
 } else {
@@ -92,6 +100,9 @@ if (process.env.ENTORNO === "PROD") {
         ssl: {
             crt: process.env.SSL_CERT_NAME,
             key: process.env.SSL_KEY_NAME
+        },
+        tinify: {
+            key: process.env.TINIFY_KEY
         }
     }
 }

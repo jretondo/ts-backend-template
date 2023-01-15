@@ -1,45 +1,46 @@
-const getPages = async (totalReg: number, cantPerPage: number, pageAct: number) => {
-    let ultPagina = 1
-    let paginas: Array<number> = []
-    if (totalReg === 0) {
+const getPages = async (rowQuantity: number, rowQuantityPerPage: number, pageActive: number) => {
+    let lastPage = 1
+    let quantityPages: Array<number> = []
+
+    if (rowQuantity === 0) {
         return {
             cantTotal: 0,
             totalPag: 0
         }
     } else {
-        if (totalReg < cantPerPage) {
-            paginas.push(1)
+        if (rowQuantity < rowQuantityPerPage) {
+            quantityPages.push(1)
             return {
-                cantTotal: paginas,
-                totalPag: ultPagina
+                quantityPages: quantityPages,
+                lastPage: lastPage
             }
         } else {
             return new Promise((resolve, reject) => {
-                const paginasFloat = totalReg / cantPerPage
-                const paginasInt: number = Math.round(totalReg / cantPerPage)
+                const pagesFloat = rowQuantity / rowQuantityPerPage
+                const pagesInt: number = Math.round(rowQuantity / rowQuantityPerPage)
                 let totalPag
-                if (paginasFloat > paginasInt) {
-                    totalPag = paginasInt + 1
+                if (pagesFloat > pagesInt) {
+                    totalPag = pagesInt + 1
                 } else {
-                    if (paginasInt === 0) {
+                    if (pagesInt === 0) {
                         totalPag = 1
                     } else {
-                        totalPag = paginasInt
+                        totalPag = pagesInt
                     }
                 }
 
-                ultPagina = totalPag
+                lastPage = totalPag
 
                 for (let i = 0; i < totalPag; i++) {
-                    const paginaLista = i + 1
-                    const limiteInf = (pageAct) - 3
-                    const limiteSup = (pageAct) + 3
-                    if (paginaLista > limiteInf && paginaLista < limiteSup)
-                        paginas.push(paginaLista)
+                    const PAGES_LIST = i + 1
+                    const LOW_LIMIT = (pageActive) - 3
+                    const TOP_LIMIT = (pageActive) + 3
+                    if (PAGES_LIST > LOW_LIMIT && PAGES_LIST < TOP_LIMIT)
+                        quantityPages.push(PAGES_LIST)
                 }
                 resolve({
-                    cantTotal: paginas,
-                    totalPag: ultPagina
+                    quantityPages: quantityPages,
+                    lastPage: lastPage
                 })
             })
         }

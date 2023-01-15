@@ -1,4 +1,4 @@
-import { EPermissions } from './../../../enums/EtablesDB';
+import { EPermissions } from '../../../enums/ETablesDB';
 import { NextFunction, Request, Response, Router } from 'express';
 import { success } from '../../../network/response';
 import Controller from './index';
@@ -12,8 +12,8 @@ const upsert = (
     next: NextFunction
 ) => {
     Controller.upsert(req.body).then(() => {
-            success({ res, req, status: 201, message: "permissions creados!" })
-        }).catch(next)
+        success({ res, req, status: 201, message: "permissions creados!" })
+    }).catch(next)
 }
 
 const get = (
@@ -22,8 +22,8 @@ const get = (
     next: NextFunction
 ) => {
     Controller.get(req.body.user.id).then((permissions: any) => {
-            success({ req, res, message: permissions })
-        }).catch(next)
+        success({ req, res, message: permissions })
+    }).catch(next)
 }
 
 const getOther = (
@@ -32,8 +32,8 @@ const getOther = (
     next: NextFunction
 ) => {
     Controller.get2(Number(req.params.id)).then((permissions: any) => {
-            success({ req, res, message: permissions })
-        }).catch(next)
+        success({ req, res, message: permissions })
+    }).catch(next)
 }
 
 const getPermissions = (
@@ -42,8 +42,8 @@ const getPermissions = (
     next: NextFunction
 ) => {
     Controller.getPermissions().then((permissions: any) => {
-            success({ req, res, message: permissions })
-        }).catch(next)
+        success({ req, res, message: permissions })
+    }).catch(next)
 }
 
 //Routes

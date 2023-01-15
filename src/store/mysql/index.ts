@@ -1,5 +1,5 @@
 import mysql from 'mysql';
-import { Tables } from '../../enums/EtablesDB';
+import { Tables } from '../../enums/ETablesDB';
 import { config } from '../../config';
 import { multipleInsert, selectContructor, updateConstructor } from './functions';
 import { IJoin, IJoinMysql, IMultipleInsert, Iorder, Ipages, IWhere, IWhereParams } from 'interfaces/Ifunctions';

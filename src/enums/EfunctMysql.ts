@@ -14,7 +14,7 @@ export enum EConcatWhere {
     none
 }
 
-export enum ESelectFunct {
+export enum ESelectFunctions {
     count = 'COUNT',
     all = '*',
     sum = 'SUM',

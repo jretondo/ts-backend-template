@@ -1,12 +1,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title><%- titlePage %></title>
-  </head>
-  <body
-    style="
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title><%- titlePage %></title>
+</head>
+
+<body style="
       -moz-box-sizing: border-box;
       -ms-text-size-adjust: 100%;
       -webkit-box-sizing: border-box;
@@ -23,12 +24,8 @@
       padding: 0;
       text-align: left;
       width: 100% !important;
-    "
-  >
-    <table
-      class="body"
-      data-made-with-foundation=""
-      style="
+    ">
+  <table class="body" data-made-with-foundation="" style="
         background: <%- Colors[0].secondary %> !important;
         border-collapse: collapse;
         border-spacing: 0;
@@ -43,14 +40,11 @@
         text-align: left;
         vertical-align: top;
         width: 100%;
-      "
-    >
-      <%- include("../Components/Styles/Style1.ejs") %>
+      ">
+    <%- include("../Components/Styles/Style1.ejs") %>
       <tbody>
         <tr style="padding: 0; text-align: left; vertical-align: top">
-          <td
-            class="float-center"
-            style="
+          <td class="float-center" style="
               -moz-hyphens: auto;
               -webkit-hyphens: auto;
               border-collapse: collapse !important;
@@ -66,18 +60,15 @@
               text-align: center;
               vertical-align: top;
               word-wrap: break-word;
-            "
-            valign="top"
-            align="center"
-          >
+            " valign="top" align="center">
             <center data-parsed="" style="min-width: 580px; width: 100%">
-              <%- include("../Components/Headers/Header1.ejs") %> <%-
-              include("../Components/Body/InfoForm.ejs") %>
+              <%- include("../Components/Headers/Header1.ejs") %> <%- include("../Components/Body/InfoForm.ejs") %>
             </center>
           </td>
         </tr>
       </tbody>
-    </table>
-    <%- include("../Components/Foother/Foother1.ejs") %>
-  </body>
+  </table>
+  <%- include("../Components/Footer/Footer1.ejs") %>
+</body>
+
 </html>

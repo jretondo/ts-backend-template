@@ -1,4 +1,4 @@
-import { EPermissions } from './../../../enums/EtablesDB';
+import { EPermissions } from '../../../enums/ETablesDB';
 import { NextFunction, Request, Response, Router } from 'express';
 import { success } from '../../../network/response';
 import Controller from './index';
@@ -11,24 +11,24 @@ const upsert = (
     res: Response,
     next: NextFunction
 ) => {
-    Controller.upsert(req.body.user, req.body.activityDescr).then(resp=>{
+    Controller.upsert(req.body.user, req.body.activityDescr).then(resp => {
         success({ req, res, message: resp })
     }).catch(next)
 }
 
-const list =(
+const list = (
     req: Request,
     res: Response,
     next: NextFunction
-)=>{
+) => {
     Controller.list(
         Number(req.params.page),
         Number(req.query.userId),
         String(req.query.dateFrom),
         String(req.query.dateTo)
-        ).then(dataList=>{
-            success({ req, res, message: dataList })
-        }).catch(next)
+    ).then(dataList => {
+        success({ req, res, message: dataList })
+    }).catch(next)
 }
 
 //Routes

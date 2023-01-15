@@ -1,6 +1,6 @@
 import { IJoin, Iorder, Ipages, IWhere, IWhereParams } from "interfaces/Ifunctions";
 import { EConcatWhere, EModeWhere } from "../../enums/EfunctMysql";
-import { Tables } from "../../enums/EtablesDB";
+import { Tables } from "../../enums/ETablesDB";
 
 export const multipleInsert = async (headers: Array<string>, rows: Array<any>): Promise<string> => {
 

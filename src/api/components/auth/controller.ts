@@ -1,4 +1,4 @@
-import { Tables } from '../../../enums/EtablesDB';
+import { Tables } from '../../../enums/ETablesDB';
 import StoreType from '../../../store/mysql';
 import bcrypt from 'bcrypt';
 import { passCreator } from '../../../utils/functions/passCreator';
@@ -11,7 +11,6 @@ export = (injectedStore: typeof StoreType) => {
 
     const upsert = async (body: Iauth, email: string) => {
         let newAuth: Iauth;
-        console.log('body :>> ', body);
         if (body.pass) {
             newAuth = {
                 user: body.user,

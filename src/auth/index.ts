@@ -16,9 +16,9 @@ const check = {
             next()
         } else {
             const decoded = decodeHeader(req, next)
-            const permision = await permissions.getPermission(req.body.user.id, idPermission);
-            const hayPermisos = permision.length;
-            if (hayPermisos < 1) {
+            const permissionsList = await permissions.getPermission(req.body.user.id, idPermission);
+            const permissionsQuantity = permissionsList.length;
+            if (permissionsQuantity < 1) {
                 next(error("No tiene los permisos"));
             } else {
                 next();

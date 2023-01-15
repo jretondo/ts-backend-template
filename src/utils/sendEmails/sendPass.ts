@@ -28,21 +28,21 @@ export const sendPass = async (
             welcome = [`¿Te olvidaste la contraseña? No te preocupes, a continuación te pasamos los nuevos datos de acceso a ${Names[0].productName}`];
         }
 
-        const datos: IEmailSendPass = {
+        const data: IEmailSendPass = {
             Colors,
             Links,
             Names,
             titlePage: subject,
             titleHead: "Hola " + user,
-            parrafosHead: welcome,
+            paragraphHead: welcome,
             titleButton: "A continuación le pasamos los datos de ingreso al mismo:",
             textCall: `Usuario: ${user}`,
             textCall2: `Contraseña: ${newPass}`,
-            textFoother: `Útilice esta información para poder ingresar al sistema: <br> <a href='${Links[0].linkApp}' target='_blank'>Aplicación de Administración</a>. El sistema le va a pedir una nueva contraseña segura que usted recuerde.`
+            textFooter: `Útilice esta información para poder ingresar al sistema: <br> <a href='${Links[0].linkApp}' target='_blank'>Aplicación de Administración</a>. El sistema le va a pedir una nueva contraseña segura que usted recuerde.`
         };
 
         return new Promise((resolve, reject) => {
-            ejs.renderFile(path.join("views", "emails", "Templates", "ForgotPass.ejs"), datos, async (err, data) => {
+            ejs.renderFile(path.join("views", "emails", "Templates", "ForgotPass.ejs"), data, async (err, data) => {
                 if (err) {
                     console.error(err);
                     resolve(false);

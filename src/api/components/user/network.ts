@@ -1,4 +1,4 @@
-import { EPermissions } from './../../../enums/EtablesDB';
+import { EPermissions } from '../../../enums/ETablesDB';
 import { Router, NextFunction, Response, Request } from 'express';
 import { success } from '../../../network/response';
 const router = Router();
@@ -29,7 +29,7 @@ const listPagination = (
 ) => {
     Controller.list(
         Number(req.params.page),
-        String(req.query.query?req.query.query:""),
+        String(req.query.query ? req.query.query : ""),
         Number(req.query.cantPerPage),
         Number(req.body.user.id)
     )
@@ -104,7 +104,7 @@ router.get("/details/:id", secure(EPermissions.userAdmin), get);
 router.get("/mydata", secure(), myDataUser)
 router.get("/:page", secure(EPermissions.userAdmin), listPagination);
 router.get("/", secure(EPermissions.userAdmin), list);
-router.post("/",secure(EPermissions.userAdmin), upsert);
+router.post("/", secure(EPermissions.userAdmin), upsert);
 router.put("/", secure(EPermissions.userAdmin), upsert);
 router.delete("/:id", secure(EPermissions.userAdmin), remove);
 
