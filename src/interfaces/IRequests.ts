@@ -4,7 +4,7 @@ export interface INewUser {
     lastname: string
     email: string,
     userName: string,
-    tel: string
+    phone: string
 }
 export interface INewPermissions {
     permissions: Array<INewPermission>,

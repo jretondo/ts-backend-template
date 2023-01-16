@@ -10,7 +10,7 @@ export interface IUser {
     lastname: string
     email: string,
     user: string,
-    tel: string
+    phone: string
 }
 export interface IUserPermission {
     id?: number,

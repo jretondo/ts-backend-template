@@ -22,7 +22,7 @@ export = (injectedStore: typeof StoreType) => {
                     { column: Columns.admin.email, object: String(item) },
                     { column: Columns.admin.name, object: String(item) },
                     { column: Columns.admin.user, object: String(item) },
-                    { column: Columns.admin.tel, object: String(item) },
+                    { column: Columns.admin.phone, object: String(item) },
                 ]
             };
             filters.push(filter);
@@ -69,7 +69,7 @@ export = (injectedStore: typeof StoreType) => {
             lastname: body.lastname,
             email: body.email,
             user: body.userName,
-            tel: body.tel
+            phone: body.phone
         }
 
         if (body.id) {

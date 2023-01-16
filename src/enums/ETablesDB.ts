@@ -4,7 +4,7 @@ enum AdminCol {
     lastname = 'lastname',
     email = 'email',
     user = 'user',
-    tel = 'tel'
+    phone = 'phone'
 }
 
 enum AuthAdmCol {
@@ -33,11 +33,7 @@ enum Activity {
 }
 
 export enum EPermissions {
-    userAdmin = 1,
-    providers = 2,
-    payments = 3,
-    reports = 4,
-    works = 5
+    userAdmin = 1
 }
 
 export enum Tables {
